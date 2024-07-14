@@ -1,0 +1,212 @@
+/* Основные стили */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    perspective: 1000px; /* Добавлено для 3D-эффектов */
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1em;
+    text-align: center;
+    animation: slideDown 1s ease-out; /* Анимация появления заголовка */
+}
+
+header h1 {
+    margin: 0;
+    animation: fadeIn 2s ease-in; /* Анимация появления текста */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -3px;
+    left: 0;
+    background-color: white;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover::before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+nav ul li a:hover {
+    color: #ffdd57; /* Изменение цвета текста при наведении */
+    transform: translateZ(10px); /* Перемещение вперед по оси Z */
+}
+
+main {
+    padding: 1em;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+h2 {
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5em;
+    animation: slideLeft 1s ease-out; /* Анимация появления заголовка */
+}
+
+/* Статьи */
+article {
+    background-color: white;
+    padding: 1em;
+    margin-bottom: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transform: rotateY(0deg); /* 3D-поворот по оси Y */
+    transition: transform 0.5s; /* Плавный переход */
+    animation: fadeInUp 1s ease-out; /* Анимация появления статьи */
+}
+
+article:hover {
+    transform: rotateY(15deg); /* Поворот при наведении */
+}
+
+article h3 {
+    color: #333;
+}
+
+article img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+    border-radius: 8px;
+    max-width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transform: scale(1); /* Начальный размер изображения */
+    transition: transform 0.5s; /* Плавный переход */
+}
+
+article img:hover {
+    transform: scale(1.1); /* Увеличение изображения при наведении */
+}
+
+ul {
+    padding-left: 1.5em;
+}
+
+ul li {
+    margin-bottom: 0.5em;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    animation: slideUp 1s ease-out; /* Анимация появления футера */
+}
+
+/* Дополнительные стили */
+#contact form {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact label {
+    margin: 0.5em 0 0.2em;
+}
+
+#contact input, #contact textarea {
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    animation: fadeIn 1s ease-in; /* Анимация появления полей формы */
+}
+
+#contact input[type="submit"] {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.7em;
+    transition: background-color 0.3s; /* Плавный переход цвета */
+}
+
+#contact input[type="submit"]:hover {
+    background-color: #555;
+}
+
+/* Ключевые кадры для анимаций */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
